@@ -9,7 +9,7 @@
 #define REPS 1024 * MB // times to access memory 
 #define MEAN 5 // times to repeat experiment to get mean
 struct timespec start;
-struct timespec end; //timestamps
+struct timespec endt; //timestamps
 
 double time_elapsed(struct timespec start, struct timespec end);
 
@@ -39,8 +39,8 @@ int main()
 				// & lengthMod == % sizes[i]/sizeof(int)
 				data[(k * 16) & (lengthMod/sizeof(int))]++;
 			}
-			clock_gettime(CLOCK_REALTIME, &end); //End time noted
-			totalTime += time_elapsed(start, end));
+			clock_gettime(CLOCK_REALTIME, &endt); //End time noted
+			totalTime += time_elapsed(start, endt));
 		}
 		// where theres a spike in time --> new level of cache
 		printf("%d, %1.2f \n", (sizes[i] / (1 * KB)), totalTime / MEAN);
