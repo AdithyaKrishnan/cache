@@ -7,8 +7,9 @@
 #define MB 1024 * KB 
 #define SIZE 12 * MB // size of array
 #define REPS 1024 * MB // times to access memory 
-#define MEAN 6 // times to repeat experiment to get mean
-struct timespec start, end; //timestamps
+#define MEAN 5 // times to repeat experiment to get mean
+struct timespec start;
+struct timespec end; //timestamps
 
 double time_elapsed(struct timespec start, struct timespec end);
 
@@ -42,7 +43,7 @@ int main()
 			totalTime += time_elapsed(start, end));
 		}
 		// where theres a spike in time --> new level of cache
-		printf("%d, %1.2f \n", (sizes[i] / (1 * KB)), totalTime / TIMES);
+		printf("%d, %1.2f \n", (sizes[i] / (1 * KB)), totalTime / MEAN);
 	}
 	// cleanup
 	//delete[] data;
