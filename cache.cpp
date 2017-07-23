@@ -11,7 +11,7 @@
 struct timespec start;
 struct timespec endt; //timestamps
 
-double time_elapsed(struct timespec start, struct timespec end);
+double time_elapsed(struct timespec start, struct timespec endt);
 
 int main() 
 {
@@ -49,10 +49,10 @@ int main()
 	//delete[] data;
 }
 //Time elapsed from 'start' to 'end' in milliseconds
-double time_elapsed(struct timespec start, struct timespec end)
+double time_elapsed(struct timespec start, struct timespec endt)
 {
 	double t;
-	t = (end.tv_sec - start.tv_sec) * 1000; //diff of tv_sec
-	t += (end.tv_nsec - start.tv_nsec) * 0.000001; //add diff of tv_nsec too
+	t = (endt.tv_sec - start.tv_sec) * 1000; //diff of tv_sec
+	t += (endt.tv_nsec - start.tv_nsec) * 0.000001; //add diff of tv_nsec too
 	return t;
 }
