@@ -7,7 +7,7 @@
 #define MB 1024 * KB 
 #define SIZE 12 * MB // size of array
 #define REPS 1024 * MB // times to access memory 
-#define MEAN  3 // times to repeat experiment to get mean
+#define MEAN  5 // times to repeat experiment to get mean
 struct timespec start;
 struct timespec endt; //timestamps
 
